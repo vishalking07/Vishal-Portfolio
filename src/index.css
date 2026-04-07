@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-primary: #ffb4a7;
+  --color-primary-container: #ff553d;
+  --color-on-primary-container: #5a0400;
+  --color-secondary: #c6c6c6;
+  --color-surface-container: #1f1f1f;
+  --color-surface-container-low: #1b1b1b;
+  --color-surface-container-high: #2a2a2a;
+  --color-outline-variant: #5f3e39;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
+  body {
+    @apply bg-background text-secondary font-body selection:bg-primary-container selection:text-on-primary-container;
+  }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+.text-neon {
+  text-shadow: 0 0 15px rgba(255, 85, 61, 0.4);
+}
+
+.glass-panel {
+  background: rgba(31, 31, 31, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-rotate {
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0) scale(1.05); }
+  50% { transform: translateY(-20px) scale(1.08); }
+}
+
+.hero-image-animate {
+  animation: subtle-float 8s ease-in-out infinite;
+}

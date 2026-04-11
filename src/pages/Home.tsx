@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { 
   ArrowUpRight, 
   Mail, 
@@ -17,15 +18,30 @@ import {
 
 import { Reveal, Navbar, Footer, Magnetic } from "../components/Shared";
 
-const Hero = () => (
-  <section className="relative min-h-screen flex items-center pt-20 px-8 overflow-hidden group cursor-pointer">
-    <div className="absolute inset-0 z-0">
-      <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent z-10 pointer-events-none"></div>
-      <img 
-        alt="Hero Background" 
-        className="w-full h-full object-cover opacity-80 object-[center_20%] md:object-[center_15%] hero-image-animate transition-transform duration-[2s] group-hover:scale-105" 
-        src="/vishal.png"
-      />
+const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const x = (clientX / window.innerWidth - 0.5) * 30; // max 15px shift
+    const y = (clientY / window.innerHeight - 0.5) * 30;
+    setMousePosition({ x, y });
+  };
+
+  return (
+    <section 
+      onMouseMove={handleMouseMove}
+      className="relative min-h-screen flex items-center pt-20 px-8 overflow-hidden group cursor-pointer"
+    >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent z-10 pointer-events-none"></div>
+        <motion.img 
+          alt="Hero Background" 
+          animate={{ x: -mousePosition.x, y: -mousePosition.y }}
+          transition={{ type: "spring", stiffness: 50, damping: 20 }}
+          className="w-full h-full object-cover opacity-80 object-[center_20%] md:object-[center_15%] scale-[1.15]" 
+          src="/vishal.png"
+        />
     </div>
     <div className="relative z-20 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
       <div className="flex flex-col justify-center">
@@ -55,8 +71,8 @@ const Hero = () => (
               <div className="animate-slow-rotate absolute inset-0">
                 <svg className="w-full h-full text-secondary opacity-30" viewBox="0 0 100 100">
                   <path d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" id="circlePath"></path>
-                  <text className="font-label text-[10px] uppercase tracking-[2px] fill-current">
-                    <textPath xlinkHref="#circlePath">DESIGN IS AN ART • DESIGN IS AN ART • </textPath>
+                  <text className="font-label text-[8px] uppercase tracking-[2px] fill-current">
+                    <textPath xlinkHref="#circlePath" startOffset="0%">DESIGN IS AN ART • ROOTED IN PASSION • </textPath>
                   </text>
                 </svg>
               </div>
@@ -67,7 +83,8 @@ const Hero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const FeaturedProject = () => (
   <section className="py-32 px-8 bg-surface" id="work">
@@ -332,6 +349,27 @@ const Philosophy = () => (
   </section>
 );
 
+const Marquee = () => (
+  <div className="py-8 bg-primary text-on-primary-container overflow-hidden flex whitespace-nowrap -rotate-2 relative z-10 scale-[1.05] shadow-2xl">
+    <motion.div 
+      animate={{ x: ["0%", "-50%"] }} 
+      transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+      className="flex gap-12 font-headline text-5xl md:text-7xl font-bold tracking-tighter"
+    >
+      {[...Array(4)].map((_, i) => (
+        <span key={i} className="flex gap-12 items-center">
+          <span>DIGITAL CRAFT</span>
+          <span className="text-on-primary-container/30 text-3xl">✦</span>
+          <span>EDITORIAL PRECISION</span>
+          <span className="text-on-primary-container/30 text-3xl">✦</span>
+          <span>INTENTIONAL MOTION</span>
+          <span className="text-on-primary-container/30 text-3xl">✦</span>
+        </span>
+      ))}
+    </motion.div>
+  </div>
+);
+
 const Journey = () => (
   <section className="bg-surface-container-low py-32 px-8 border-y border-outline-variant/5">
     <div className="max-w-7xl mx-auto">
@@ -404,6 +442,7 @@ export default function Home() {
       <FeaturedProject />
       <SelectedWorks />
       <Philosophy />
+      <Marquee />
       <MotionFlow />
       <Journey />
       <VisualPosters />

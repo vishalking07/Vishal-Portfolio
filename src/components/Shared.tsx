@@ -24,13 +24,21 @@ export const Navbar = () => (
     <div className="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
       <Link to="/" className="text-xl font-bold tracking-tighter text-neutral-100 font-headline">VISHAL A.</Link>
       <div className="hidden md:flex items-center gap-12">
-        <a className="text-orange-500 font-bold border-b-2 border-orange-500 pb-1 font-headline tracking-tight" href="/#work">Work</a>
-        <a className="text-neutral-400 hover:text-neutral-100 transition-colors font-headline tracking-tight" href="/#about">About</a>
-        <a className="text-neutral-400 hover:text-neutral-100 transition-colors font-headline tracking-tight" href="/#contact">Contact</a>
+        <Magnetic>
+          <a className="text-orange-500 font-bold border-b-2 border-orange-500 pb-1 font-headline tracking-tight inline-block" href="/#work">Work</a>
+        </Magnetic>
+        <Magnetic>
+          <a className="text-neutral-400 hover:text-neutral-100 transition-colors font-headline tracking-tight inline-block" href="/#about">About</a>
+        </Magnetic>
+        <Magnetic>
+          <a className="text-neutral-400 hover:text-neutral-100 transition-colors font-headline tracking-tight inline-block" href="/#contact">Contact</a>
+        </Magnetic>
       </div>
-      <a href="https://drive.google.com/file/d/1Cav-E1L2c6f2diH_s5JQzPzRAg0sj01b/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 transition-all inline-block">
-        Hire Me
-      </a>
+      <Magnetic>
+        <a href="https://drive.google.com/file/d/1Cav-E1L2c6f2diH_s5JQzPzRAg0sj01b/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 transition-all inline-block">
+          Hire Me
+        </a>
+      </Magnetic>
     </div>
   </nav>
 );
@@ -40,18 +48,20 @@ export const Footer = () => (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-neutral-800/30 pt-12">
       <p className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500">© 2024 VISHAL A. DESIGNED WITH INTENT.</p>
       <div className="flex items-center gap-8">
-        <a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors" href="https://www.linkedin.com/in/vishal-a-designer" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors" href="mailto:spideyvishal05@gmail.com">Email</a>
-        <a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors" href="#" target="_blank" rel="noopener noreferrer">Dribbble</a>
-        <a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <Magnetic><a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors inline-block" href="https://www.linkedin.com/in/vishal-a-designer" target="_blank" rel="noopener noreferrer">LinkedIn</a></Magnetic>
+        <Magnetic><a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors inline-block" href="mailto:spideyvishal05@gmail.com">Email</a></Magnetic>
+        <Magnetic><a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors inline-block" href="#" target="_blank" rel="noopener noreferrer">Dribbble</a></Magnetic>
+        <Magnetic><a className="font-headline uppercase text-xs tracking-[0.2em] text-neutral-500 hover:text-neutral-100 transition-colors inline-block" href="#" target="_blank" rel="noopener noreferrer">Instagram</a></Magnetic>
       </div>
-      <motion.button 
-        whileHover={{ y: -5 }}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-500 hover:text-primary hover:border-primary transition-colors"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </motion.button>
+      <Magnetic>
+        <motion.button 
+          whileHover={{ y: -5 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-500 hover:text-primary hover:border-primary transition-colors"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.button>
+      </Magnetic>
     </div>
   </footer>
 );

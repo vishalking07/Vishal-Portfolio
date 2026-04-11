@@ -72,7 +72,7 @@ const Hero = () => {
                 <svg className="w-full h-full text-secondary opacity-30" viewBox="0 0 100 100">
                   <path d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" id="circlePath"></path>
                   <text className="font-label text-[8px] uppercase tracking-[2px] fill-current">
-                    <textPath xlinkHref="#circlePath" startOffset="0%">DESIGN IS AN ART • ROOTED IN PASSION • </textPath>
+                    <textPath xlinkHref="#circlePath" startOffset="0%">•DESIGN IS AN ART • ROOTED IN PASSION   </textPath>
                   </text>
                 </svg>
               </div>

@@ -236,10 +236,10 @@ const VisualPosters = () => (
       </Reveal>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
-          "https://lh3.googleusercontent.com/aida/ADBb0uitrlICl8fCZtt6dquR0SOiUI9aFX1WtNFfMtXd2_HnXKivoMt6itsieP--qf_29BMNsYHSdS9SB3A7hPsO3a3rVsubo5QgyFVgZPGrH04Xp2e9UNgb--qjztH4GU6UmwGppQ_biZw3B74r3PUyaS5BA7hWNbRdsI7ixlL6kKgbxx5shBhHU4gFzXKgEunWy7BdiDvHr7xDaSgzdric7SZppseq5q9jidPKNqsFB5BTHTAHW0ZT3J_WXK-vg7LPr9FBCx8CPm9qsZs",
-          "https://lh3.googleusercontent.com/aida/ADBb0uios6Iq4ZrUq66nWIqNPXyahW8ByZk3pXyzBPNKIyo5YgzMwVyPzMddnvwsFhBhEQSMVAfcoGlEfBt-hIDJeoW9DL4FpjGhAz5af2Q659FgHzfcOHV-58-FraVDMT_SW02n_HqPUpRHGvbNqeETCdC-8NBC7-4JfMafUQn39Vc0fyJX0HINCL3cZFKEV6zz1de8OWtGIsf59cy8FbKeUrupeOVvJtVhnG4wNBJ0Y4iA8DeGA-PUY5EmDlj879Wb_uB1vCG9-p4HTWY",
-          "https://lh3.googleusercontent.com/aida/ADBb0uil3o0F_G90UGEjXmOHQiaQUAjNQabgFkss5_9tYkf88Vmi7Th-gt_Zm4xaQawxIqzdcG7CdyliMnJaTAcn5hSuWrCVKO8oxvnNhnFyustmOJbQkkWgo29_8EUVSSqszy7lPd4cVSvBcDHobte97sIe9Lh0CpSAdNKM0DaxusyzV2XBc6BV5rqBKXYTZnO1pXEJ11oZaMin4lZ2E731qThh2Xyq0PCje3TpzL2B5N5ED8MJIcE-ovvFu2ClmxsRXXwJc2XpRJqTEtc",
-          "https://lh3.googleusercontent.com/aida/ADBb0ujWVzHyHb5IqxfM_juqADo5JCpHuveZo0z3Ko--IZEdz2yprQrzk_y_ysY9Z29dK0WkrHeDRi1FCWt-rFnOq7UlJPC_oeTRlrDm15uvS_hDqCvaX4mhQYn6jmYreBhqYt6ijtcJZaZgcuNjRcEVMNeThJMPZ16O5jw6uAV7ol7A_LGw7IlxofzPWp1HLte49LPqgPHYGD8hE7g8oPIHWwf8r3vp2SBVbagWMTd0pY_7J_rPNTRruc3EdovnpXqXGXIfnHSkmY-doqk"
+          "/compressed_1.jpg",
+          "/compressed_2.jpg",
+          "/SOCIOFITT HANDBALL (5).png",
+          "/SOCIOFITT HANDBALL (7).png"
         ].map((url, i) => (
           <Reveal key={i} delay={i * 0.1}>
             <div className="aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high group">

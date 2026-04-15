@@ -35,7 +35,7 @@ export const Navbar = () => (
         </Magnetic>
       </div>
       <Magnetic>
-        <a href="https://drive.google.com/file/d/1Cav-E1L2c6f2diH_s5JQzPzRAg0sj01b/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 transition-all inline-block">
+        <a href="https://drive.google.com/file/d/16dtAORWOI9e0sJWuRVAChwNI8PvT9dpr/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 transition-all inline-block">
           Hire Me
         </a>
       </Magnetic>

@@ -412,75 +412,43 @@ const Journey = () => (
 
 const skillCategories = [
   {
-    icon: <Monitor className="w-6 h-6" />,
+    icon: <Monitor className="w-5 h-5" />,
     title: "User Interface Design",
-    color: "from-violet-500/10 to-purple-500/5",
-    accent: "text-violet-400",
-    border: "border-violet-500/20",
-    tag: "bg-violet-500/10 text-violet-300",
     skills: ["Visual Design", "Design Systems", "Responsive UI", "Component Libraries", "Dark Mode UI"]
   },
   {
-    icon: <Layers2 className="w-6 h-6" />,
+    icon: <Layers2 className="w-5 h-5" />,
     title: "Prototyping",
-    color: "from-cyan-500/10 to-blue-500/5",
-    accent: "text-cyan-400",
-    border: "border-cyan-500/20",
-    tag: "bg-cyan-500/10 text-cyan-300",
     skills: ["Interactive Prototypes", "Micro-interactions", "Figma Prototyping", "Animated Transitions", "Click-through Flows"]
   },
   {
-    icon: <PencilRuler className="w-6 h-6" />,
+    icon: <PencilRuler className="w-5 h-5" />,
     title: "Wireframing",
-    color: "from-emerald-500/10 to-green-500/5",
-    accent: "text-emerald-400",
-    border: "border-emerald-500/20",
-    tag: "bg-emerald-500/10 text-emerald-300",
     skills: ["Lo-fi Wireframes", "Hi-fi Wireframes", "Sketching", "Rapid Iteration", "Layout Structure"]
   },
   {
-    icon: <GitFork className="w-6 h-6" />,
+    icon: <GitFork className="w-5 h-5" />,
     title: "User Flow",
-    color: "from-orange-500/10 to-amber-500/5",
-    accent: "text-orange-400",
-    border: "border-orange-500/20",
-    tag: "bg-orange-500/10 text-orange-300",
     skills: ["Flow Mapping", "User Journey Maps", "Task Analysis", "Decision Trees", "Onboarding Flows"]
   },
   {
-    icon: <Network className="w-6 h-6" />,
+    icon: <Network className="w-5 h-5" />,
     title: "Information Architecture",
-    color: "from-rose-500/10 to-pink-500/5",
-    accent: "text-rose-400",
-    border: "border-rose-500/20",
-    tag: "bg-rose-500/10 text-rose-300",
     skills: ["Sitemap Design", "Content Strategy", "Navigation Design", "Card Sorting", "Taxonomy"]
   },
   {
-    icon: <Palette className="w-6 h-6" />,
+    icon: <Palette className="w-5 h-5" />,
     title: "Brand Identity",
-    color: "from-yellow-500/10 to-amber-500/5",
-    accent: "text-yellow-400",
-    border: "border-yellow-500/20",
-    tag: "bg-yellow-500/10 text-yellow-300",
     skills: ["Logo Design", "Brand Guidelines", "Typography Systems", "Color Theory", "Style Guides"]
   },
   {
-    icon: <Clapperboard className="w-6 h-6" />,
+    icon: <Clapperboard className="w-5 h-5" />,
     title: "Video Editing",
-    color: "from-fuchsia-500/10 to-purple-500/5",
-    accent: "text-fuchsia-400",
-    border: "border-fuchsia-500/20",
-    tag: "bg-fuchsia-500/10 text-fuchsia-300",
     skills: ["Motion Graphics", "Social Media Reels", "Event Highlights", "Title Animations", "Color Grading"]
   },
   {
-    icon: <Wrench className="w-6 h-6" />,
+    icon: <Wrench className="w-5 h-5" />,
     title: "Tools & Tech",
-    color: "from-slate-500/10 to-gray-500/5",
-    accent: "text-slate-300",
-    border: "border-slate-500/20",
-    tag: "bg-slate-500/10 text-slate-300",
     skills: ["Figma", "Canva", "HTML", "CSS", "JavaScript", "React", "CapCut", "Notion", "Dribbble", "Behance"]
   },
 ];
@@ -505,35 +473,35 @@ const Skills = () => (
         {skillCategories.map((cat, i) => (
           <Reveal key={i} delay={i * 0.07}>
             <motion.div
-              whileHover={{ y: -6, scale: 1.02 }}
+              whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`relative rounded-xl p-7 bg-gradient-to-br ${cat.color} border ${cat.border} backdrop-blur-sm overflow-hidden group cursor-default`}
+              className="glass-panel relative rounded-lg p-7 border border-outline-variant/10 overflow-hidden group cursor-default hover:border-primary/20 transition-colors duration-300"
             >
-              {/* Glow orb */}
-              <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 bg-current ${cat.accent}`} />
+              {/* Subtle primary glow on hover */}
+              <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-700 bg-primary" />
 
-              <div className={`flex items-center gap-3 mb-5 ${cat.accent}`}>
+              <div className="flex items-center gap-3 mb-5 text-primary">
                 {cat.icon}
-                <h3 className="font-headline text-lg font-bold tracking-tight text-neutral-100">{cat.title}</h3>
+                <h3 className="font-headline text-base font-bold tracking-tight text-neutral-100">{cat.title}</h3>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, j) => (
                   <motion.span
                     key={j}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 + j * 0.04, duration: 0.3 }}
-                    className={`px-3 py-1 rounded-full text-xs font-label tracking-wide ${cat.tag} border border-white/5`}
+                    transition={{ delay: i * 0.04 + j * 0.03, duration: 0.3 }}
+                    className="px-4 py-1.5 rounded-full border border-outline-variant/50 text-secondary text-xs font-label hover:bg-primary-container hover:text-on-primary-container hover:border-primary/30 transition-colors cursor-default"
                   >
                     {skill}
                   </motion.span>
                 ))}
               </div>
 
-              {/* Bottom accent line */}
-              <div className={`absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r from-transparent via-current to-transparent ${cat.accent}`} />
+              {/* Primary accent line on hover */}
+              <div className="absolute bottom-0 left-0 h-[1px] w-0 group-hover:w-full transition-all duration-500 bg-primary/40" />
             </motion.div>
           </Reveal>
         ))}

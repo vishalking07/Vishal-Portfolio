@@ -14,6 +14,14 @@ import {
   Pentagon,
   Globe,
   Zap,
+  Monitor,
+  Layers2,
+  PencilRuler,
+  GitFork,
+  Network,
+  Palette,
+  Clapperboard,
+  Wrench,
 } from "lucide-react";
 
 import { Reveal, Navbar, Footer, Magnetic } from "../components/Shared";
@@ -402,6 +410,138 @@ const Journey = () => (
   </section>
 );
 
+const skillCategories = [
+  {
+    icon: <Monitor className="w-6 h-6" />,
+    title: "User Interface Design",
+    color: "from-violet-500/10 to-purple-500/5",
+    accent: "text-violet-400",
+    border: "border-violet-500/20",
+    tag: "bg-violet-500/10 text-violet-300",
+    skills: ["Visual Design", "Design Systems", "Responsive UI", "Component Libraries", "Dark Mode UI"]
+  },
+  {
+    icon: <Layers2 className="w-6 h-6" />,
+    title: "Prototyping",
+    color: "from-cyan-500/10 to-blue-500/5",
+    accent: "text-cyan-400",
+    border: "border-cyan-500/20",
+    tag: "bg-cyan-500/10 text-cyan-300",
+    skills: ["Interactive Prototypes", "Micro-interactions", "Figma Prototyping", "Animated Transitions", "Click-through Flows"]
+  },
+  {
+    icon: <PencilRuler className="w-6 h-6" />,
+    title: "Wireframing",
+    color: "from-emerald-500/10 to-green-500/5",
+    accent: "text-emerald-400",
+    border: "border-emerald-500/20",
+    tag: "bg-emerald-500/10 text-emerald-300",
+    skills: ["Lo-fi Wireframes", "Hi-fi Wireframes", "Sketching", "Rapid Iteration", "Layout Structure"]
+  },
+  {
+    icon: <GitFork className="w-6 h-6" />,
+    title: "User Flow",
+    color: "from-orange-500/10 to-amber-500/5",
+    accent: "text-orange-400",
+    border: "border-orange-500/20",
+    tag: "bg-orange-500/10 text-orange-300",
+    skills: ["Flow Mapping", "User Journey Maps", "Task Analysis", "Decision Trees", "Onboarding Flows"]
+  },
+  {
+    icon: <Network className="w-6 h-6" />,
+    title: "Information Architecture",
+    color: "from-rose-500/10 to-pink-500/5",
+    accent: "text-rose-400",
+    border: "border-rose-500/20",
+    tag: "bg-rose-500/10 text-rose-300",
+    skills: ["Sitemap Design", "Content Strategy", "Navigation Design", "Card Sorting", "Taxonomy"]
+  },
+  {
+    icon: <Palette className="w-6 h-6" />,
+    title: "Brand Identity",
+    color: "from-yellow-500/10 to-amber-500/5",
+    accent: "text-yellow-400",
+    border: "border-yellow-500/20",
+    tag: "bg-yellow-500/10 text-yellow-300",
+    skills: ["Logo Design", "Brand Guidelines", "Typography Systems", "Color Theory", "Style Guides"]
+  },
+  {
+    icon: <Clapperboard className="w-6 h-6" />,
+    title: "Video Editing",
+    color: "from-fuchsia-500/10 to-purple-500/5",
+    accent: "text-fuchsia-400",
+    border: "border-fuchsia-500/20",
+    tag: "bg-fuchsia-500/10 text-fuchsia-300",
+    skills: ["Motion Graphics", "Social Media Reels", "Event Highlights", "Title Animations", "Color Grading"]
+  },
+  {
+    icon: <Wrench className="w-6 h-6" />,
+    title: "Tools & Tech",
+    color: "from-slate-500/10 to-gray-500/5",
+    accent: "text-slate-300",
+    border: "border-slate-500/20",
+    tag: "bg-slate-500/10 text-slate-300",
+    skills: ["Figma", "Canva", "HTML", "CSS", "JavaScript", "React", "CapCut", "Notion", "Dribbble", "Behance"]
+  },
+];
+
+const Skills = () => (
+  <section className="py-32 px-8 bg-surface-container-low" id="skills">
+    <div className="max-w-7xl mx-auto">
+      <Reveal>
+        <div className="mb-20">
+          <span className="font-label uppercase tracking-widest text-primary mb-4 block">Expertise</span>
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
+            <h2 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter">SKILLS &amp; CRAFT</h2>
+            <p className="text-secondary max-w-sm text-sm leading-relaxed font-body">
+              A multidisciplinary toolkit—from research to pixels to motion—built to deliver end-to-end design excellence.
+            </p>
+          </div>
+          <div className="w-full h-[1px] bg-outline-variant/20 mt-12" />
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((cat, i) => (
+          <Reveal key={i} delay={i * 0.07}>
+            <motion.div
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`relative rounded-xl p-7 bg-gradient-to-br ${cat.color} border ${cat.border} backdrop-blur-sm overflow-hidden group cursor-default`}
+            >
+              {/* Glow orb */}
+              <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 bg-current ${cat.accent}`} />
+
+              <div className={`flex items-center gap-3 mb-5 ${cat.accent}`}>
+                {cat.icon}
+                <h3 className="font-headline text-lg font-bold tracking-tight text-neutral-100">{cat.title}</h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, j) => (
+                  <motion.span
+                    key={j}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 + j * 0.04, duration: 0.3 }}
+                    className={`px-3 py-1 rounded-full text-xs font-label tracking-wide ${cat.tag} border border-white/5`}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+
+              {/* Bottom accent line */}
+              <div className={`absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r from-transparent via-current to-transparent ${cat.accent}`} />
+            </motion.div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const Contact = () => (
   <section className="py-32 px-8 bg-surface-container-lowest" id="contact">
     <div className="max-w-7xl mx-auto text-center">
@@ -447,6 +587,7 @@ export default function Home() {
       <Journey />
       <VisualPosters />
       <About />
+      <Skills />
       <Contact />
       <Footer />
     </div>
